@@ -2,6 +2,9 @@
 
 FrameFinder is a robust and efficient pipeline for image analysis that integrates object detection, text extraction, and object summarization using state-of-the-art machine learning models. This pipeline is designed to streamline the processing of visual data, making it useful for a variety of applications such as automated image annotation, content analysis, and more.
 
+<img width="1440" alt="Screenshot 2024-08-04 at 5 12 00 PM" src="">
+
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
