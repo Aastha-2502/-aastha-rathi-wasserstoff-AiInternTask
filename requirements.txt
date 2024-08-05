@@ -2,7 +2,7 @@ numpy
 pandas
 seaborn
 matplotlib
-opencv-python
+opencv-python==4.6.0.66
 pathlib
 ultralytics
 easyocr
