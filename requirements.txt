@@ -1,0 +1,11 @@
+numpy
+pandas
+seaborn
+matplotlib
+opencv-python
+pathlib
+ultralytics
+easyocr
+torch
+streamlit
+transformers
