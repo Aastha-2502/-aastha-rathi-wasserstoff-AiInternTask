@@ -8,7 +8,7 @@ from table import output_table
 
 def main():
     st.title("Frame Finder")
-    uploaded_file = st.file_uploader("Upload Image", type = ['jpg','jpeg','png'])
+    uploaded_file = st.file_uploader("Upload Image", type = ['jpg','jpeg'])
     col1, col2 = st.columns(2)
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
