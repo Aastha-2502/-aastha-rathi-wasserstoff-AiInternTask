@@ -8,7 +8,7 @@ object_counter = defaultdict(int)
 
 def yoloV8(image,master_id):
     model = ultralytics.YOLO('yolov8l.pt')
-    results = model.predict(image, conf = 0.8)
+    results = model.predict(image, conf = 0.6)
 
     global object_counter
     object_ids = list()
