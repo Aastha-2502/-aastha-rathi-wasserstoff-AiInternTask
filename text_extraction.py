@@ -28,10 +28,12 @@ def extract_text_from_bbox_easy_ocr_bclip(image, bbox):
     ocr_result = " ".join(text_lines) if text_lines else "-"
 
     # Blip
-    text = "A picture of"
-    inputs = processor(cropped_img, text, return_tensors="pt").to(device)
-
-    out = model.generate(**inputs, num_beams=3)
-    blip_result = processor.decode(out[0], skip_special_tokens=True)
+    try:
+        text = "A picture of"
+        inputs = processor(cropped_img, text, return_tensors="pt").to(device)
+        out = model.generate(**inputs, num_beams=3)
+        blip_result = processor.decode(out[0], skip_special_tokens=True)
+    except Exception as e:
+        blip_result = "-"
 
     return ocr_result, blip_result
