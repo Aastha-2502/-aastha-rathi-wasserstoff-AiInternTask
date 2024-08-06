@@ -16,11 +16,15 @@ def main():
             st.image(image, caption='Uploaded Image', use_column_width=True)
         image, master_id = input_image(uploaded_file)
 
-        with st.spinner('Processing...'):
-            results, master_dict, boxes, object_ids = yoloV8(image, master_id)
+        with col2:
+            placeholder = st.empty()
+            with placeholder.container():
+                st.spinner('Processing...')
+                
+        results, master_dict, boxes, object_ids = yoloV8(image, master_id)
             
         with col2:
-            annotated_image(results, object_ids)
+            placeholder.image(annotated_image(results, object_ids))
             
         for i, bbox in enumerate(boxes.xyxy):
             text, attribute = extract_text_from_bbox_easy_ocr_bclip(image, bbox)
@@ -31,10 +35,10 @@ def main():
                 master_dict['MasterImage']['objects'][i]['attribute'] = attribute
 
         df = output_table(master_dict)
-        st.subheader('Detected Objects')
-
-        placeholder = st.empty()
+        
         with placeholder:
+            st.spinner('Loading the table...')
+            st.subheader('Detected Objects')
             st.table(df)
 
 if __name__ == "__main__":
